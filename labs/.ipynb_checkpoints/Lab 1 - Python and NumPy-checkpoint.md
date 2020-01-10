@@ -14,7 +14,7 @@ jupyter:
 ---
 
 # Name(s)
-**PUT YOUR FULL NAME(S) HERE**
+**Miles Cobb**
 
 
 **Instructions:** This is an individual assignment, but you may discuss your code with your neighbors.
@@ -46,46 +46,81 @@ For the following exercises please read the Python appendix in the Marsland text
 ## Exercise 1
 
 ```python
-# YOUR SOLUTION HERE
-#a=1000
-print('this is my answer',a+1) 
+import numpy as np
+a = np.ones((6,4)) * 2
+print(a)
 ```
 
 ## Exercise 2
 
 ```python
-# YOUR SOLUTION HERE
-a=2000
+b = np.ones((6,4))
+np.fill_diagonal(b, 3)
+print(b)
 ```
 
 ## Exercise 3
 
-```python
-# YOUR SOLUTION HERE
-```
+
+Using * does element by element multiplication. np.dot() attempts to multiply these matricies, which do not have dimensions that allow for matrix multiplication
+
 
 ## Exercise 4
 
-```python
-# YOUR SOLUTION HERE
+```python jupyter={"outputs_hidden": true}
+print(np.dot(a.transpose(),b))
+
+print(np.dot(a,b.transpose()))
+
+print("the first multiplies a 4x6 matrix by a 6x4 matrix, resulting in a 4x4.")
+print("the second results in a 6x6 matrix as it multiplies a 6x4 by a 4x6")
+
 ```
 
 ## Exercise 5
 
 ```python
-# YOUR SOLUTION HERE
+def my_print(value):
+    print(value)
+    
+my_print('testing')
 ```
 
 ## Exercise 6
 
 ```python
-# YOUR SOLUTION HERE
+def stats():
+    arr1 = np.random.rand(3,3)
+    arr2 = np.random.rand(3,3)
+    print("random array 1", arr1)
+    print("average", np.average(arr1))
+    print("average column", np.average(arr1, 0))
+    print("random array 2", arr2)
+    print("average", np.average(arr1))
+    print("average column", np.average(arr1, 0))
+    
+stats()
 ```
 
 ## Exercise 7
 
 ```python
-# YOUR SOLUTION HERE
+def loops(arr):
+    count = 0 
+    for row in arr:
+        for col in row:
+            if col == 1:
+                count += 1
+    return count
+
+print("using loops:", loops(np.ones((5,4))))
+
+def using_where(arr):
+    return np.sum(np.where(arr == 1, 1, 0))
+
+    
+    
+print("Using where:", using_where(np.ones((5,3))))
 ```
 
 ## Excercises 8-???
@@ -96,7 +131,9 @@ While the Marsland book avoids using another popular package called Pandas, we w
 Repeat exercise A.1 from Marsland, but create a Pandas DataFrame instead of a NumPy array.
 
 ```python
-# YOUR SOLUTION HERE
+import pandas as pd
+arr = np.ones((6,4))
+
 ```
 
 ## Exercise 9
