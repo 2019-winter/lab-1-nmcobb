@@ -46,17 +46,23 @@ For the following exercises please read the Python appendix in the Marsland text
 ## Exercise 1
 
 ```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 import numpy as np
 a = np.ones((6,4)) * 2
-print(a)
+a
+## END SOLUTION
 ```
 
 ## Exercise 2
 
 ```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 b = np.ones((6,4))
 np.fill_diagonal(b, 3)
-print(b)
+b
+## END SOLUTION
 ```
 
 ## Exercise 3
@@ -67,44 +73,57 @@ Using * does element by element multiplication. np.dot() attempts to multiply th
 
 ## Exercise 4
 
-```python jupyter={"outputs_hidden": true}
+```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 print(np.dot(a.transpose(),b))
 
 print(np.dot(a,b.transpose()))
 
 print("the first multiplies a 4x6 matrix by a 6x4 matrix, resulting in a 4x4.")
 print("the second results in a 6x6 matrix as it multiplies a 6x4 by a 4x6")
+## END SOLUTION
 
 ```
 
 ## Exercise 5
 
 ```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 def my_print(value):
     print(value)
     
 my_print('testing')
+## END SOLUTION
 ```
 
 ## Exercise 6
 
 ```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 def stats():
     arr1 = np.random.rand(3,3)
     arr2 = np.random.rand(3,3)
     print("random array 1", arr1)
+    print("sum", np.sum(arr1))
     print("average", np.average(arr1))
     print("average column", np.average(arr1, 0))
     print("random array 2", arr2)
+    print("sum", np.sum(arr1))
     print("average", np.average(arr1))
     print("average column", np.average(arr1, 0))
     
 stats()
+## END SOLUTION
 ```
 
 ## Exercise 7
 
 ```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 def loops(arr):
     count = 0 
     for row in arr:
@@ -119,8 +138,9 @@ def using_where(arr):
     return np.sum(np.where(arr == 1, 1, 0))
 
     
-    
-print("Using where:", using_where(np.ones((5,3))))
+
+print("Using where:", using_where(np.ones((5,4))))
+## END SOLUTION
 ```
 
 ## Excercises 8-???
@@ -131,38 +151,49 @@ While the Marsland book avoids using another popular package called Pandas, we w
 Repeat exercise A.1 from Marsland, but create a Pandas DataFrame instead of a NumPy array.
 
 ```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 import pandas as pd
 arr = np.ones((6,4))
 df = pd.DataFrame(data=arr)
 a = df * 2
-print(a)
+a
+## END SOLUTION
 ```
 
 ## Exercise 9
 Repeat exercise A.2 using a DataFrame instead.
 
 ```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 b = np.ones((6,4))
 np.fill_diagonal(b, 3)
 b = pd.DataFrame(data=b)
-print(b)
+b
+## END SOLUTION
 ```
 
 ## Exercise 10
 Repeat exercise A.3 using DataFrames instead.
 
 ```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 print(a * b) #multiplies element by element
 try:
     np.dot(a, b)
 except ValueError:
     print("does not work as multiplying a 6x4 by 6x4 is not valid")
+## END SOLUTION
 ```
 
 ## Exercise 11
 Repeat exercise A.7 using a dataframe.
 
-```python jupyter={"outputs_hidden": true}
+```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 def loops(df):
     count = 0 
     for index, row in df.iterrows():
@@ -180,6 +211,7 @@ arr = pd.DataFrame(data = np.ones((5,3)))
 print(arr)
 print("using where", using_where(arr))
 print("using loops", loops(arr))
+## END SOLUTION
 ```
 
 ## Exercises 12-14
@@ -199,7 +231,10 @@ Notice how we have nice headers and mixed datatypes? That is one of the reasons 
 How do you select the ``name`` column without using .iloc?
 
 ```python
-titanic_df[['name']]
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
+titanic_df['name']
+## END SOLUTION
 ```
 
 ## Exercise 13
@@ -207,16 +242,21 @@ After setting the index to ``sex``, how do you select all passengers that are ``
 
 ```python
 ## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 titanic_df.set_index('sex',inplace=True)
 women = titanic_df.loc['female']
 women.size
+## END SOLUTION
 ```
 
 ## Exercise 14
 How do you reset the index?
 
 ```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 titanic_df.reset_index()
+## END SOLUTION
 ```
 
 ```python

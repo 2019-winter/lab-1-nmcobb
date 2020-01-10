@@ -46,17 +46,23 @@ For the following exercises please read the Python appendix in the Marsland text
 ## Exercise 1
 
 ```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 import numpy as np
 a = np.ones((6,4)) * 2
-print(a)
+a
+## END SOLUTION
 ```
 
 ## Exercise 2
 
 ```python
+## YOUR SOLUTION HERE
+## BEGIN SOLUTION
 b = np.ones((6,4))
 np.fill_diagonal(b, 3)
-print(b)
+b
+## END SOLUTION
 ```
 
 ## Exercise 3
@@ -67,7 +73,7 @@ Using * does element by element multiplication. np.dot() attempts to multiply th
 
 ## Exercise 4
 
-```python jupyter={"outputs_hidden": true}
+```python
 print(np.dot(a.transpose(),b))
 
 print(np.dot(a,b.transpose()))
@@ -93,9 +99,11 @@ def stats():
     arr1 = np.random.rand(3,3)
     arr2 = np.random.rand(3,3)
     print("random array 1", arr1)
+    print("sum", np.sum(arr1))
     print("average", np.average(arr1))
     print("average column", np.average(arr1, 0))
     print("random array 2", arr2)
+    print("sum", np.sum(arr1))
     print("average", np.average(arr1))
     print("average column", np.average(arr1, 0))
     
@@ -119,8 +127,8 @@ def using_where(arr):
     return np.sum(np.where(arr == 1, 1, 0))
 
     
-    
-print("Using where:", using_where(np.ones((5,3))))
+
+print("Using where:", using_where(np.ones((5,4))))
 ```
 
 ## Excercises 8-???
@@ -133,28 +141,53 @@ Repeat exercise A.1 from Marsland, but create a Pandas DataFrame instead of a Nu
 ```python
 import pandas as pd
 arr = np.ones((6,4))
-
+df = pd.DataFrame(data=arr)
+a = df * 2
+a
 ```
 
 ## Exercise 9
 Repeat exercise A.2 using a DataFrame instead.
 
 ```python
-# YOUR SOLUTION HERE
+b = np.ones((6,4))
+np.fill_diagonal(b, 3)
+b = pd.DataFrame(data=b)
+b
 ```
 
 ## Exercise 10
 Repeat exercise A.3 using DataFrames instead.
 
 ```python
-# YOUR SOLUTION HERE
+print(a * b) #multiplies element by element
+try:
+    np.dot(a, b)
+except ValueError:
+    print("does not work as multiplying a 6x4 by 6x4 is not valid")
 ```
 
 ## Exercise 11
 Repeat exercise A.7 using a dataframe.
 
 ```python
-# YOUR SOLUTION HERE
+def loops(df):
+    count = 0 
+    for index, row in df.iterrows():
+        for e in row:
+            if e == 1:
+                count += 1
+        
+    return count
+
+def using_where(arr):
+    return np.sum(np.where(arr == 1, 1, 0))
+
+
+arr = pd.DataFrame(data = np.ones((5,3)))
+print(arr)
+print("using where", using_where(arr))
+print("using loops", loops(arr))
 ```
 
 ## Exercises 12-14
@@ -174,7 +207,7 @@ Notice how we have nice headers and mixed datatypes? That is one of the reasons 
 How do you select the ``name`` column without using .iloc?
 
 ```python
-## YOUR SOLUTION HERE
+titanic_df['name']
 ```
 
 ## Exercise 13
@@ -183,13 +216,20 @@ After setting the index to ``sex``, how do you select all passengers that are ``
 ```python
 ## YOUR SOLUTION HERE
 titanic_df.set_index('sex',inplace=True)
+women = titanic_df.loc['female']
+women.size
 ```
 
 ## Exercise 14
 How do you reset the index?
 
 ```python
-## YOUR SOLUTION HERE
+titanic_df.reset_index()
+
+```
+
+```python
+
 ```
 
 ```python
